@@ -1,0 +1,263 @@
+{
+  "ASUS_Z00AD":{
+    "cam_id": 1,
+    "resolution": 8.57,
+    "color_acc": 947.94,
+    "noise": 3.7912,
+    "dr": 6.6438,
+    "psf": 68.3,
+    "aliasing": 0.0699
+  },
+  "CANON_EOS70D":{
+    "cam_id": 2,
+    "resolution": 29.22,
+    "color_acc": 745.74,
+    "noise": 1.8789,
+    "dr": 9.6336,
+    "psf": 17.8,
+    "aliasing": 0.0
+  },
+  "Google_Pixel2":{
+    "cam_id": 3,
+    "resolution": 13.77,
+    "color_acc": 684.54,
+    "noise": 2.6599,
+    "dr": 7.6404,
+    "psf": 27.5,
+    "aliasing": 0.0746
+  },
+  "Google_Pixel6":{
+    "cam_id": 4,
+    "resolution": 11.95,
+    "color_acc": 637.27,
+    "noise": 2.5658,
+    "dr": 7.6404,
+    "psf": 39.5,
+    "aliasing": 0.0965
+  },
+  "HTC_DesireEye":{
+    "cam_id": 5,
+    "resolution": 12.59,
+    "color_acc": 915.51,
+    "noise": 4.0640,
+    "dr": 6.3117,
+    "psf": 59.6,
+    "aliasing": 0.0717
+  },
+  "HTC_OneM7":{
+    "cam_id": 6,
+    "resolution": 5.70,
+    "color_acc": 952.16,
+    "noise": 6.2865,
+    "dr": 5.9795,
+    "psf": 54.5,
+    "aliasing": 0.2931
+  },
+  "HTC_OneX+":{
+    "cam_id": 7,
+    "resolution": 7.48,
+    "color_acc": 902.7,
+    "noise": 2.6295,
+    "dr": 6.3117,
+    "psf": 56.3,
+    "aliasing": 0.0996
+  },
+  "HUAWEI_P8Lite":{
+    "cam_id": 8,
+    "resolution": 10.62,
+    "color_acc": 474.78,
+    "noise": 3.4722,
+    "dr": 7.3082,
+    "psf": 62.4,
+    "aliasing": 0.0770
+  },
+  "HUAWEI_P30Pro":{
+    "cam_id": 9,
+    "resolution": 26.71,
+    "color_acc": 706.83,
+    "noise": 1.4529,
+    "dr": 8.6370,
+    "psf": 22.5,
+    "aliasing": 0.00707281
+  },
+  "LG_G3":{
+    "cam_id": 10,
+    "resolution": 16.66,
+    "color_acc": 902.93,
+    "noise": 12.0148,
+    "dr": 7.6404,
+    "psf": 70.3,
+    "aliasing": 0.0700
+  },
+  "Nexus6":{
+    "cam_id": 11,
+    "resolution": 11.1,
+    "color_acc": 531.27,
+    "noise": 1.7157,
+    "dr": 7.6404,
+    "psf": 64.8,
+    "aliasing": 0.0860
+  },
+  "Nokia_asha300":{
+    "cam_id": 12,
+    "resolution": 7.88,
+    "color_acc": 897.55,
+    "noise": 5.2513,
+    "dr": 6.9760,
+    "psf": 51.6,
+    "aliasing": 0.0827
+  },
+  "Nokia_N79":{
+    "cam_id": 13,
+    "resolution": 8.56,
+    "color_acc": 795.29,
+    "noise": 4.0134,
+    "dr": 6.9760,
+    "psf": 65.7,
+    "aliasing": 0.1220
+  },
+  "OPPO_A92S":{
+    "cam_id": 14,
+    "resolution": 9.57,
+    "color_acc": 905.39,
+    "noise": 1.8599,
+    "dr": 6.6438,
+    "psf": 51.5,
+    "aliasing": 0.0827
+  },
+  "Realme_X7Pro":{
+    "cam_id": 15,
+    "resolution": 10.45,
+    "color_acc": 736.32,
+    "noise": 2.6861,
+    "dr": 6.6438,
+    "psf": 50.0,
+    "aliasing": 0.0
+  },
+  "Samsung_GalaxyNote20_Ultra5G":{
+    "cam_id": 16,
+    "resolution": 11.74,
+    "color_acc": 736.91,
+    "noise": 1.7211,
+    "dr": 7.3082,
+    "psf": 52.5,
+    "aliasing": 0.0908
+  },
+  "Samsung_GalaxyS4":{
+    "cam_id": 17,
+    "resolution": 13.33,
+    "color_acc": 838.65,
+    "noise": 2.0311,
+    "dr": 6.9760,
+    "psf": 52.7,
+    "aliasing": 0.0734
+  },
+  "Samsung_GalaxyS5":{
+    "cam_id": 18,
+    "resolution": 14.33,
+    "color_acc": 806.69,
+    "noise": 4.6240,
+    "dr": 6.9760,
+    "psf": 48.0,
+    "aliasing": 0.0567
+  },
+  "Samsung_GalaxyS6_edge":{
+    "cam_id": 19,
+    "resolution": 12.90,
+    "color_acc": 863.93,
+    "noise": 3.1192,
+    "dr": 6.9760,
+    "psf": 51.0,
+    "aliasing": 0.0624
+  },
+  "Samsung_GalaxyS10":{
+    "cam_id": 20,
+    "resolution": 18.64,
+    "color_acc": 712.00,
+    "noise": 2.9899,
+    "dr": 7.3082,
+    "psf": 24.4,
+    "aliasing": 0.0
+  },
+  "Samsung_GTI9100":{
+    "cam_id": 21,
+    "resolution": 8.19,
+    "color_acc": 931.12,
+    "noise": 2.5423,
+    "dr": 6.6438,
+    "psf": 79.0,
+    "aliasing": 0.0925
+  },
+  "Samsung_GTI9300":{
+    "cam_id": 22,
+    "resolution": 9.64,
+    "color_acc": 876.85,
+    "noise": 3.3558,
+    "dr": 7.3082,
+    "psf": 64.5,
+    "aliasing": 0.0944
+  },
+  "Sony_Ericsson_T630":{
+    "cam_id": 23,
+    "resolution": 2.15,
+    "color_acc": 862.57,
+    "noise": 10.1393,
+    "dr": 5.9795,
+    "psf": 168.7,
+    "aliasing": 0.3904
+  },
+  "Sony_Ericsson_vivaz":{
+    "cam_id": 24,
+    "resolution": 10.56,
+    "color_acc": 984.92,
+    "noise": 1.8174,
+    "dr": 6.9760,
+    "psf": 48.4,
+    "aliasing": 0.1082
+  },
+  "Sony_Ericsson_W810":{
+    "cam_id": 25,
+    "resolution": 6.14,
+    "color_acc": 868.28,
+    "noise": 2.6588,
+    "dr": 6.3117,
+    "psf": 138.8,
+    "aliasing": 0.2865
+  },
+  "Sony_st21i":{
+    "cam_id": 26,
+    "resolution": 3.33,
+    "color_acc": 757.66,
+    "noise": 2.8840,
+    "dr": 6.9760,
+    "psf": 87.8,
+    "aliasing": 0.1616
+  },
+  "Sony_Xperia_XA1Ultra":{
+    "cam_id": 27,
+    "resolution": 11.06,
+    "color_acc": 658.05,
+    "noise": 1.5321,
+    "dr": 7.6404,
+    "psf": 58.0,
+    "aliasing": 0.0
+  },
+  "Sony_Xperia_Z5Compact":{
+    "cam_id": 28,
+    "resolution": 13.41,
+    "color_acc": 773.8,
+    "noise": 3.6219,
+    "dr": 5.3151,
+    "psf": 46.9,
+    "aliasing": 0.0708
+  },
+  "Sony_Xperia_Z":{
+    "cam_id": 29,
+    "resolution": 9.96,
+    "color_acc": 950.31,
+    "noise": 2.2291,
+    "dr": 5.9795,
+    "psf": 48.3,
+    "aliasing": 0.0692
+  }
+}
