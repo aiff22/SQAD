@@ -8,6 +8,7 @@ Image.MAX_IMAGE_PIXELS = None
 
 
 data_root = './data/train'
+test_root = './data/test'
 processed_root = './data/processed'
 
 try:
@@ -27,6 +28,7 @@ def parse_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('--crop_num', type=int, default=32, help='crop numbers for each image')
     parser.add_argument('--crop_size', type=int, default=224, help='input image size for network')
+    parser.add_argument('--crop_test_dataset', type=bool, default=False, help='whether to crop test folder in advance')
     args = parser.parse_args()
     return args
 
