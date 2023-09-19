@@ -11,24 +11,15 @@ data_root = './data/train'
 test_root = './data/test'
 processed_root = './data/processed'
 
-try:
-    os.remove(os.path.join(processed_root, 'train.txt'))
-    os.remove(os.path.join(processed_root, 'val.txt'))
-except:
-    print('No old files exist.')
-
-
 with open('camera_ground_truth.json', "r") as f:
     target = json.load(f)
 
-# crop_size = 224
-# crop_num = 32
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--crop_num', type=int, default=32, help='crop numbers for each image')
-    parser.add_argument('--crop_size', type=int, default=224, help='input image size for network')
-    parser.add_argument('--crop_test_dataset', type=bool, default=False, help='whether to crop test folder in advance')
+    parser.add_argument('--crop_num', type=int, default=32, help="crop numbers for each image")
+    parser.add_argument('--crop_size', type=int, default=224, help="input image size for network")
+    parser.add_argument('--crop_test_dataset', help="whether to crop test folder in advance", default=False, action='store_true')
     args = parser.parse_args()
     return args
 
@@ -56,9 +47,20 @@ def crop_image(image_path, camera_name, crop_num, crop_size, save_path):
         f.writelines(data)
 
 
+
 def main(args):
 
+    os.makedirs(os.path.join(processed_root, 'train'), exist_ok=True)
+    os.makedirs(os.path.join(processed_root, 'val'), exist_ok=True)
+
+    try:
+        os.remove(os.path.join(processed_root, 'train.txt'))
+        os.remove(os.path.join(processed_root, 'val.txt'))
+    except:
+        print('No old label files exist. Process to the next step...')
+
     for file in os.listdir(data_root):
+        # Folder path for each camera device
         current_pth = os.path.join(data_root, file)
         if os.path.isdir(current_pth):
             all_images = os.listdir(current_pth)
@@ -68,14 +70,34 @@ def main(args):
                 camera_name = file.split('_', 1)[1]
                 # labels = target[camera_name]
 
-                # create cropped image sets for training and validation
-                # keep 9 images in each folder for validation
+                # Create cropped image sets for training and validation
+                # Keep 9 images in each folder for validation
                 if idx >= len(all_images) - 9:
                     crop_image(image_path, camera_name, args.crop_num, args.crop_size, 'val')
                 else:
                     crop_image(image_path, camera_name, args.crop_num, args.crop_size, 'train')
 
-            print('Cropped for: {}'.format(file))
+            print("Cropped for: {} in training dataset".format(file))
+
+
+    ##### Create crops for test dataset if specified #####
+    if args.crop_test_dataset:
+        print("---- Start to crop images for test dataset")
+        os.makedirs(os.path.join(processed_root, 'test'), exist_ok=True)
+        try:
+            os.remove(os.path.join(processed_root, 'test.txt'))
+        except:
+            print('No test label file found. Continue...')
+    
+        for file in os.listdir(test_root):
+            current_pth = os.path.join(test_root, file)
+            if os.path.isdir(current_pth):
+
+                all_images = os.listdir(current_pth)
+                for idx in range(len(all_images)):
+                    image_path = os.path.join(current_pth, all_images[idx])
+                    camera_name = file.split('_', 1)[1]
+                    crop_image(image_path, camera_name, args.crop_num, args.crop_size, 'test')
 
 
 if __name__ == '__main__':

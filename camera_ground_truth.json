@@ -8,7 +8,7 @@
     "psf": 68.3,
     "aliasing": 0.0699
   },
-  "CANON_EOS70D":{
+  "Canon_EOS70D":{
     "cam_id": 2,
     "resolution": 29.22,
     "color_acc": 745.74,
@@ -251,7 +251,7 @@
     "psf": 46.9,
     "aliasing": 0.0708
   },
-  "Sony_Xperia_Z":{
+  "Sony_XperiaZ":{
     "cam_id": 29,
     "resolution": 9.96,
     "color_acc": 950.31,
