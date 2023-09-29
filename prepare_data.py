@@ -17,7 +17,7 @@ with open('camera_ground_truth.json', "r") as f:
 
 def parse_args():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--crop_num', type=int, default=32, help="crop numbers for each image")
+    parser.add_argument('--crop_num', type=int, default=16, help="crop numbers for each image")
     parser.add_argument('--crop_size', type=int, default=224, help="input image size for network")
     parser.add_argument('--crop_test_dataset', help="whether to crop test folder in advance", default=False, action='store_true')
     args = parser.parse_args()
@@ -26,22 +26,29 @@ def parse_args():
 def crop_image(image_path, camera_name, crop_num, crop_size, save_path):
     data = []
     img = np.asarray(Image.open(image_path))
+    normgray = (0.213 * img[:,:,0] + 0.715 * img[:,:,1] + 0.072 * img[:,:,2]) / 255.0
+
     h, w, _ = img.shape
     i = 0
     while i < crop_num:
         hstart = random.randint(0, h-crop_size)
         wstart = random.randint(0, w-crop_size)
-        img_crop = img[hstart:hstart+crop_size, wstart:wstart+crop_size, :]
 
-        crop_name = image_path.split('/')[-2] + '_' + image_path.split('/')[-1][:-4] + '_' + str(i) + '.jpg'
-        file_path = os.path.join(processed_root, save_path, crop_name)
-        
-        img_crop = Image.fromarray(img_crop)
-        img_crop.save(file_path, quality=100, subsampling=0)
+        crop_std = np.std(normgray[hstart:hstart+crop_size, wstart:wstart+crop_size])
+        # Feel free to set different threshold to filter flat region, i.e. blue sky
+        # But higher value will result in longer pre-process time
+        if crop_std > 0.1:
+            img_crop = img[hstart:hstart+crop_size, wstart:wstart+crop_size, :]
 
-        line = ("%s %s\n" % (file_path, camera_name))
-        data.append(line)
-        i += 1
+            crop_name = image_path.split('/')[-2] + '_' + image_path.split('/')[-1][:-4] + '_' + str(i) + '.jpg'
+            file_path = os.path.join(processed_root, save_path, crop_name)
+            
+            img_crop = Image.fromarray(img_crop)
+            img_crop.save(file_path, quality=100, subsampling=0)
+
+            line = ("%s %s\n" % (file_path, camera_name))
+            data.append(line)
+            i += 1
     
     with open(os.path.join(processed_root, save_path + '.txt'), "a") as f:
         f.writelines(data)
