@@ -6,7 +6,7 @@ import numpy as np
 import random
 import json
 
-with open('camera_ground_truth.json', "r") as f:
+with open('../camera_ground_truth.json', "r") as f:
     target = json.load(f)
 
 class CameraCropDataset(Dataset):
@@ -29,7 +29,7 @@ class CameraCropDataset(Dataset):
             
         img_name, camera = self.data[idx].split()
 
-        image = np.asarray(Image.open(os.path.join(self.data_dir, img_name)))  #imageio.imread(os.path.join(self.img_dir, img_name))
+        image = np.asarray(Image.open(os.path.join(self.data_dir, img_name)))
         gt_dict = target[camera]
         pred_target = float(gt_dict[self.quality_factor])
 
