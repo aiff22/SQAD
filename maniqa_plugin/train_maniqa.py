@@ -133,11 +133,11 @@ if __name__ == '__main__':
     # config file
     config = Config({
         # dataset path
-        "gt_file_name": "/data/home/zilin/meta_image/camera_ready/camera_ground_truth.json",
-        "train_img_path": "/data/home/zilin/meta_image/camera_ready/",   # path for the folder where "data" folder is
-        "val_img_path": "/data/home/zilin/meta_image/camera_ready/",
-        "train_txt_file_name": "/data/home/zilin/meta_image/camera_ready/data/processed/train.txt",  # path for label file
-        "val_txt_file_name": "/data/home/zilin/meta_image/camera_ready/data/processed/val.txt",
+        "gt_file_name": "/your/work/path/camera_ground_truth.json",
+        "train_img_path": "/your/work/path/",                                 # path for the folder where "data" folder is
+        "val_img_path": "/your/work/path/",
+        "train_txt_file_name": "/your/work/path/data/processed/train.txt",    # path for label file
+        "val_txt_file_name": "/your/work/path/data/processed/val.txt",
         "factor": "dr",   # choose different quality factor for training
 
         # optimization
@@ -148,7 +148,7 @@ if __name__ == '__main__':
         "val_freq": 1,
         "T_max": 50,
         "eta_min": 0,
-        "num_avg_val": 1,
+        "num_avg_val": 5,
         "crop_size": 224,
         "num_workers": 4,
 

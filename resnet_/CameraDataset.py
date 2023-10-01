@@ -16,6 +16,8 @@ class CameraCropDataset(Dataset):
         self.data_dir = data_dir
         self.quality_factor = quality_factor
         self.transform = transform
+
+        self.quality_scales = {"resolution": 1.0, "color_acc": 0.01, "noise": 1.0, "dr": 1.0, "psf": 0.1, "aliasing": 100}
         
         with open(self.label_file, 'r') as f:
             self.data = f.readlines()
@@ -31,7 +33,7 @@ class CameraCropDataset(Dataset):
 
         image = np.asarray(Image.open(os.path.join(self.data_dir, img_name)))
         gt_dict = target[camera]
-        pred_target = float(gt_dict[self.quality_factor])
+        pred_target = float(gt_dict[self.quality_factor]) * float(self.quality_scales[self.quality_factor])
 
         if self.transform:
             image = self.transform(image)
@@ -50,6 +52,8 @@ class FullImageDataset(Dataset):
         self.img_size = img_size
         self.crop_num = crop_num
         self.quality_factor = quality_factor
+
+        self.quality_scales = {"resolution": 1.0, "color_acc": 0.01, "noise": 1.0, "dr": 1.0, "psf": 0.1, "aliasing": 100}
         
         with open(self.label_file, 'r') as f:
             self.imgs = f.readlines()
@@ -73,7 +77,7 @@ class FullImageDataset(Dataset):
         img_crop = image[hstart:hstart+self.img_size, wstart:wstart+self.img_size, :]
                 
         gt_dict = target[camera]
-        pred_target = float(gt_dict[self.quality_factor])
+        pred_target = float(gt_dict[self.quality_factor]) * float(self.quality_scales[self.quality_factor])
 
         if self.transform:
             img_crop = self.transform(img_crop)

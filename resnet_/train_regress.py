@@ -1,8 +1,9 @@
-from CameraDataset import CameraCrop2Dataset, FullImageDataset
+from CameraDataset import CameraCropDataset, FullImageDataset
 import numpy as np
 from torch.utils.data import DataLoader
 import torch
 from torchvision import models, transforms
+from torch.optim.lr_scheduler import StepLR
 import torch.nn as nn
 import argparse
 import os
@@ -22,7 +23,7 @@ def parse_args():
     args = parser.parse_args()
     return args
 
-def train(model, optimizer, criterion, train_loader, epoch):
+def train_one_epoch(model, optimizer, criterion, train_loader, epoch):
     model.train()
     train_loss = 0
     for batch_idx, (x, target) in enumerate(train_loader):
@@ -78,9 +79,13 @@ def main(args):
                                 transforms.RandomVerticalFlip(),
                                 transforms.ToTensor(),
                                 transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))])  # mean and std from ImageNet
+    
+    eval_trans = transforms.Compose([transforms.ToPILImage(),
+                                     transforms.ToTensor(),
+                                     transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225))])
 
-    train_dataset = CameraCrop2Dataset(label_file='./data/processed/train.txt', data_dir='./', quality_factor=args.factor, transform=trans)
-    eval_dataset = CameraCrop2Dataset(label_file='./data/processed/val.txt', data_dir='./', quality_factor=args.factor, transform=trans)
+    train_dataset = CameraCropDataset(label_file='../data/processed/train.txt', data_dir='../', quality_factor=args.factor, transform=trans)
+    eval_dataset = CameraCropDataset(label_file='../data/processed/val.txt', data_dir='../', quality_factor=args.factor, transform=eval_trans)
 
     train_loader = DataLoader(dataset=train_dataset, batch_size=args.batch_size, shuffle=True)
     eval_loader = DataLoader(dataset=eval_dataset, batch_size=args.batch_size, shuffle=True)
@@ -94,10 +99,11 @@ def main(args):
 
     criterion = nn.L1Loss()
     optimizer = torch.optim.Adam([{'params': sqad_RegNet.parameters()}], lr=0.001)
-
+    scheduler = StepLR(optimizer, step_size=50, gamma=0.5)
 
     for epoch in range(1, args.train_epochs + 1):
-        train(sqad_RegNet, optimizer, criterion, train_loader, epoch)
+        train_one_epoch(sqad_RegNet, optimizer, criterion, train_loader, epoch)
+        scheduler.step()
         if epoch % args.save_eval_every == 0:
             evaluation(sqad_RegNet, criterion, eval_loader, epoch)
 

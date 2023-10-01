@@ -72,9 +72,9 @@ if __name__ == '__main__':
     # config file
     config = Config({
         # dataset path
-        "gt_file_name": "/data/home/zilin/meta_image/camera_ready/camera_ground_truth.json",
-        "test_img_path": "/data/home/zilin/meta_image/camera_ready/",                                     # path for the folder where "data" folder is
-        "test_txt_file_name": "/data/home/zilin/meta_image/camera_ready/data/processed/sample_test.txt",   # path for label file
+        "gt_file_name": "/your/work/path/camera_ground_truth.json",
+        "test_img_path": "/your/work/path/",                                      # path for the folder where "data" folder is
+        "test_txt_file_name": "/your/work/path/data/processed/sample_test.txt",   # path for label file
         "factor": "resolution",
         
         # optimization
