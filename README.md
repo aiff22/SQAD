@@ -1,9 +1,9 @@
-# SQAD
-SQAD: Automatic Smartphone Camera Quality Assessment and Benchmarking<br>
+# SQAD: Automatic Smartphone Camera Quality Assessment and Benchmarking
+Official webpage for ICCV'23 paper "SQAD: Automatic Smartphone Camera Quality Assessment and Benchmarking"<br>
 
 Dataset download: [SQAD](). There are three folders contained: *train*, *test*, and *sample_crop16*. Follow the instructions below to prepare the data for training.<br>
 
-You can download our pre-trained models from this link: Pre-trained [model zoo]()
+You can download our pre-trained models from this link: pre-trained [model zoo]()
 
 TODO List:
 - [ ] add tables for baseline results
