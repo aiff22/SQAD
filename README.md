@@ -2,7 +2,8 @@
 SQAD: Automatic Smartphone Camera Quality Assessment and Benchmarking<br>
 
 Dataset download: [SQAD](). There are three folders contained: *train*, *test*, and *sample_crop16*. Follow the instructions below to prepare the data for training.<br>
-Pre-trained [model zoo]()
+
+You can download our pre-trained models from this link: Pre-trained [model zoo]()
 
 TODO List:
 - [ ] add tables for baseline results
@@ -66,6 +67,3 @@ python train_regress.py --factor dr(resolution/color_acc/...) --batch_size 64 --
 
 ## Baselines
 Here we provide some baselines for testing on `sample_crop16` subset and some randomly generated test set from `test` folder. Within one image, the information levels (i.e. edge details, color vividness) for different parts usually vary, there would be fluctuations for the metrics.
-
-## Pre-traind models
-You can download our pre-trained models from the link we provided.
