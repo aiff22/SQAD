@@ -1,10 +1,10 @@
 # SQAD: Automatic Smartphone Camera Quality Assessment and Benchmarking
 Official webpage for ICCV'23 paper "SQAD: Automatic Smartphone Camera Quality Assessment and Benchmarking"<br>
 
-Dataset download: [SQAD](). 
+Dataset download: [SQAD](http://data.vision.ee.ethz.ch/ihnatova/public/sqad/sqad.zip)
 * There are three folders contained: *train*, *test*, and *sample_crop16*. Follow the instructions below to prepare the data for training and testing.
 
-You can download our pre-trained models from this link: pre-trained [model zoo]().
+You can download our pre-trained models from this link: [ResNet-based](http://data.vision.ee.ethz.ch/ihnatova/public/sqad/resnet_models.zip) / [MANIQA-based](http://data.vision.ee.ethz.ch/ihnatova/public/sqad/maniqa_models.zip)
 * Here are MANIQA-based models with all 6 quality factors, and ResNet-based models for resolution on cross-camera prediction task. Please refer to Table 4 in the paper for camera set division.
 
 * Feel free to explore on cross-camera prediction task since there is still high potential to improve further.
